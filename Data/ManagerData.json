@@ -1,0 +1,11 @@
+{
+  "valid_manager_credentials": {
+    "username": "test-supervisor2",
+    "password": "45622"
+  },
+  "invalid_manager_credentials": {
+    "username": "aassi",
+    "password": "hgukk"
+  }
+
+}

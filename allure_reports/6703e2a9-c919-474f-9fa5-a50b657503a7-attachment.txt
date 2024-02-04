@@ -1,1 +1,0 @@
-The overlay button did not disappear.

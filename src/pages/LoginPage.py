@@ -1,11 +1,9 @@
-from selenium.common import NoSuchElementException
-
-from pages.BasePage import BasePage
+from src.pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
 
 
 class LoginPage(BasePage):
-    # Web element locators
+
     USERNAME_FIELD = (By.NAME, "username")
     PASSWORD_FIELD = (By.NAME, "password")
     LOGIN_BUTTON = (By.CSS_SELECTOR, "button[type='submit']")
@@ -14,56 +12,30 @@ class LoginPage(BasePage):
     AURORA_LOGO = (By.CSS_SELECTOR, "img[src*='Aurora.svg']")
     ORION_LOGO = (By.CSS_SELECTOR, "img[src*='Orion.svg']")
 
-    def enter_username(self, username):
+    def login(self, username, password):
         self.type(self.USERNAME_FIELD, username)
-
-    def enter_password(self, password):
         self.type(self.PASSWORD_FIELD, password)
-
-    def click_login_button(self):
         self.click(self.LOGIN_BUTTON)
 
-    def login(self, username, password):
-        self.enter_username(username)
-        self.enter_password(password)
-        self.click_login_button()
-
     def get_error_message(self):
-        # Retrieve an error message element after a failed login attempt
-        return self.find_element(self.ERROR_MESSAGE, timeout=10)
+        if self.is_element_visible(self.ERROR_MESSAGE, timeout=10):
+            return self.find_element(self.ERROR_MESSAGE).text
+        return None
 
     def is_username_field_displayed(self):
-        try:
-            return self.find_element(self.USERNAME_FIELD).is_displayed()
-        except NoSuchElementException:
-            return False
+        return self.is_element_visible(self.USERNAME_FIELD)
 
     def is_password_field_displayed(self):
-        try:
-            return self.find_element(self.PASSWORD_FIELD).is_displayed()
-        except NoSuchElementException:
-            return False
+        return self.is_element_visible(self.PASSWORD_FIELD)
 
     def is_sign_in_button_displayed(self):
-        try:
-            return self.find_element(self.LOGIN_BUTTON).is_displayed()
-        except NoSuchElementException:
-            return False
+        return self.is_element_visible(self.LOGIN_BUTTON)
 
     def is_asal_logo_displayed(self):
-        try:
-            return self.find_element(self.ASAL_LOGO).is_displayed()
-        except NoSuchElementException:
-            return False
+        return self.is_element_visible(self.ASAL_LOGO)
 
     def is_aurora_logo_displayed(self):
-        try:
-            return self.find_element(self.AURORA_LOGO).is_displayed()
-        except NoSuchElementException:
-            return False
+        return self.is_element_visible(self.AURORA_LOGO)
 
     def is_orion_logo_displayed(self):
-        try:
-            return self.find_element(self.ORION_LOGO).is_displayed()
-        except NoSuchElementException:
-            return False
+        return self.is_element_visible(self.ORION_LOGO)

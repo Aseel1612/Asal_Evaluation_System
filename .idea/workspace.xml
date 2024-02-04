@@ -1,29 +1,182 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4e57e11-a299-4cba-b8cf-4f9c2acd7e35" name="Changes" comment="" />
+    <list default="true" id="e4e57e11-a299-4cba-b8cf-4f9c2acd7e35" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/pages/EvaluationPage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/MyTeamPage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/BaseData.json" beforeDir="false" afterPath="$PROJECT_DIR$/Data/BaseData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/EmployeeData.json" beforeDir="false" afterPath="$PROJECT_DIR$/Data/EmployeeData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/ManagerData.json" beforeDir="false" afterPath="$PROJECT_DIR$/Data/ManagerData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/screen_sizes.json" beforeDir="false" afterPath="$PROJECT_DIR$/Data/screen_sizes.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/021cf2aa-409b-4c42-8034-b0dc0571c741-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/02b364ea-bf61-4923-a939-b5d403eae09d-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/032fb232-9530-4df1-acf8-ed84c7409e47-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/032fc130-e3b7-4b90-84d6-08090fad8fe0-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/04385277-bcb9-439d-9ed6-d1e958875b1b-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/09577f3f-0e74-4bd5-8520-bd8b6e7563b8-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/10dc1eee-457c-458c-8930-d1ad964ac2a1-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/18603505-5ed7-4f8b-ad74-6c48a9162427-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/191d9486-2532-49ce-b0d2-92032d38d1d5-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/1984cfdc-5ecd-45c9-a59a-0459115c308f-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/1b07e7b7-28ad-41f7-8414-7446dbf78843-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/1c715fd9-c8a3-44f9-b87c-a9b81b574b77-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/23e26350-6680-4045-a0d6-07b401d0ffca-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/2b0ccd21-3592-4a12-a7d3-6fcc5e55980a-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/34deb084-0a21-4b76-954e-2497a4b421ae-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/3705d894-98f3-4309-9cfb-1741547819ce-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/3a7bd808-e7d3-49ad-998c-3091457f3bfe-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/46c7d8ab-2bb1-4a04-b7ae-633dc4949544-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/4c110dac-2bcc-4088-a06b-d3260a749ca2-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/53d2b991-4462-4228-bbc5-1daa6401745b-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/55d9e3bb-929b-455b-ab79-aca5f3a2b4ef-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/565e0740-6367-4c3e-8350-da4a020d2bf1-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/5a7b049a-7a68-4407-8e7e-434fed761a7e-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/5c5c83d8-6095-4e89-88a4-eaa8333699fc-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/6703e2a9-c919-474f-9fa5-a50b657503a7-attachment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/6861198b-cb4e-4c95-a15b-cc3adf91f4d1-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/6fd844f3-6a4e-436e-8d07-e7789c3ac944-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/734a72be-1e68-4da4-ac2e-f76a97029de8-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/738ad440-5fe5-496e-8027-35002d7586bd-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/75eb849b-61cc-4b60-8436-63e6c77c2e53-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/7d531829-8ed1-41f7-af4d-357c46ea4aac-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/878ba7fb-fc57-4a2b-833f-f1577e40e926-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/89c37f03-877e-4a1e-9524-fdda729caeca-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/8de8cf6b-23a4-49a8-9181-8aa35de323d9-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/a4b5d1d0-ec02-41f5-abbf-d288fefb7558-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/a80466c4-92b5-41a5-87b5-e29a3500f6d3-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/a82df5a1-2b63-4df3-a41a-780bc971c432-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/ad29393f-a6fb-4978-acb8-10d46f754213-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/afe628fa-d071-4172-b646-4e48d0a79067-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/b10daed7-4ebe-4255-9322-8b10f648c89c-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/b3690612-25c5-4a44-ada1-4df89ac9d8de-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/b9201571-f31b-4cb6-a6ce-0edf8d75c038-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/bd075c12-742e-4679-838e-cd2c3419a266-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/bf1e61d4-83f8-4806-90ce-4adcf1f076db-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/c28de4b4-6427-4caf-af53-8ba6617a5bbc-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/c2f4b609-ddad-4d75-a0b8-65adee2029df-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/c9515f03-6a07-42a9-ad3b-9518b3d3a43f-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/cc8bffbc-b1a1-4996-947d-5407f2bae454-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/d55e665e-8016-410c-ac51-9e6e86c04e8b-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/d7d41209-a374-4c26-aa35-5e35aae7ba7c-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/d8d4b181-7e10-4ce9-93b3-66f8cc6ab697-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/de2404e4-0da7-4cd9-9680-3781128a9cd4-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/ded131ec-03c7-454c-8d32-48f35dcfd648-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/e0ab14d6-1e8d-42ca-9af7-312fc6228935-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/e4aede7f-f104-4b0b-9b2e-2623c097b414-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/e7fd8740-ae4f-487c-8f6c-1350f910fee1-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/ed82c617-f45a-42a7-9fa5-2b7ab9f90bc9-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/eeb2e561-e737-464f-84b9-784a8d9131d3-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/f86c636e-7b60-4c28-9ed6-9dcbcfe6a8da-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/fa558582-a800-4721-89fa-660dba824f4d-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/fe12ad2d-5d4a-48eb-9f71-355eb4e000ee-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshots/Tablet_evaluation_page.png" beforeDir="false" afterPath="$PROJECT_DIR$/screenshots/Tablet_evaluation_page.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/BasePage.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/BasePage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/EmployeeEvaluationPage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/EvaluationHistoryPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/EvaluationHistoryPage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/HomePage.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/data_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/data_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests_/test_employee/test_EmployeeEvaluation.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests_/test_employee/test_EmployeeEvaluation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests_/test_employee/test_employee_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests_/test_employee/test_employee_login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests_/test_manager/test_ManagerEvaluationForEmployee.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests_/test_manager/test_ManagerEvaluationForEmployee.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests_/test_manager/test_manager_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests_/test_manager/test_manager_login.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2bgOZnbrXDWd975hRpxu0l0gRo8" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python tests.Python tests for EmployeeEvaluationTest.test_fill_evaluation_randomly.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "configurable.group.project",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\AAssi\PycharmProjects\Asal_Evaluation_System\tests_" />
+      <recent name="C:\Users\AAssi\PycharmProjects\Asal_Evaluation_System" />
+      <recent name="C:\Users\AAssi\PycharmProjects\Asal_Evaluation_System\test_employee" />
+      <recent name="C:\Users\AAssi\PycharmProjects\Asal_Evaluation_System\src" />
+      <recent name="C:\Users\AAssi\PycharmProjects\Asal_Evaluation_System\pages" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python tests.Python tests in test_employee_login.py">
+    <configuration name="Python tests for tests_.test_employee.test_EmployeeEvaluation.test_fill_evaluation_randomly" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Asal_Evaluation_System" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests_/test_employee" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests_.test_employee.test_EmployeeEvaluation.test_fill_evaluation_randomly&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in test_employee_login.py" type="tests" factoryName="Autodetect" nameIsGenerated="true">
+      <module name="Asal_Evaluation_System" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests_/test_employee" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests_/test_employee/test_employee_login.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for tests_.test_employee.test_EmployeeEvaluation.test_fill_evaluation_randomly" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -39,8 +192,46 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706633312888</updated>
-      <workItem from="1706633318177" duration="3000" />
+      <workItem from="1706633318177" duration="15744000" />
+      <workItem from="1706785466233" duration="5142000" />
+      <workItem from="1706809398590" duration="10024000" />
+      <workItem from="1706858752203" duration="775000" />
+      <workItem from="1706859682220" duration="8979000" />
+      <workItem from="1706885786781" duration="10438000" />
+      <workItem from="1706903173683" duration="859000" />
+      <workItem from="1706904253224" duration="55192000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests_/test_employee/test_EmployeeEvaluation.py</url>
+          <line>31</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Asal_Evaluation_System$.coverage" NAME=" Coverage Results" MODIFIED="1706872558948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_employee" />
   </component>
 </project>

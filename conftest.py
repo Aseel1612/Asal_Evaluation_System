@@ -21,49 +21,58 @@ def screen_sizes():
 
 @pytest.fixture(scope='session')
 def config():
-    # Load the configuration from `EmployeeData.json`
-    config_path = os.path.join(os.path.dirname(__file__), 'Data', 'EmployeeData.json')
-    with open(config_path) as config_file:
-        config_data = json.load(config_file)
-    return config_data
+    base_config_path = os.path.join(os.path.dirname(__file__), 'Data', 'BaseData.json')
+    with open(base_config_path) as base_config_file:
+        base_config_data = json.load(base_config_file)
+
+    employee_config_path = os.path.join(os.path.dirname(__file__), 'Data', 'EmployeeData.json')
+    with open(employee_config_path) as employee_config_file:
+        employee_config_data = json.load(employee_config_file)
+
+    manager_config_path = os.path.join(os.path.dirname(__file__), 'Data', 'ManagerData.json')
+    with open(manager_config_path) as manager_config_file:
+        manager_config_data = json.load(manager_config_file)
+
+    combined_config_data = {
+        'browserType': base_config_data['browserType'],
+        'baseUrl': base_config_data['baseUrl'],
+        'employee': employee_config_data,
+        'manager': manager_config_data
+    }
+
+    return combined_config_data
 
 
 @pytest.fixture(scope='session')
-def browser(config):
-    if config['browserType'].lower() == 'chrome':
+def employee_browser(config):
+    browser = init_browser(config['browserType'])
+    browser.get(config['baseUrl'])
+    yield browser
+    browser.quit()
+
+
+@pytest.fixture(scope='session')
+def manager_browser(config):
+    browser = init_browser(config['browserType'])
+    browser.get(config['baseUrl'])
+    yield browser
+    browser.quit()
+
+
+def init_browser(browser_type):
+    browser_type = browser_type.lower()
+    if browser_type == 'chrome':
         chrome_options = ChromeOptions()
-        chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])  # Suppress the logging
-
-        # Pass the ChromeService with the path from ChromeDriverManager
+        chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
         chrome_service = ChromeService(ChromeDriverManager().install())
-        driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
-
-    elif config['browserType'].lower() == 'firefox':
+        return webdriver.Chrome(service=chrome_service, options=chrome_options)
+    elif browser_type == 'firefox':
         firefox_options = FirefoxOptions()
-
-        # Set Firefox preferences to handle SSL errors and logging
-        firefox_options.set_preference("webdriver.log.driver", "OFF")
-        firefox_options.set_preference("network.http.use-cache", False)
-        firefox_options.set_preference("security.insecure_field_warning.contextual.enabled", False)
-        firefox_options.set_preference("security.certificate_errors.insecure_field_warning.contextual.enabled", False)
-
-        # Pass the FirefoxService with the path from GeckoDriverManager
         firefox_service = FirefoxService(GeckoDriverManager().install())
-        driver = webdriver.Firefox(service=firefox_service, options=firefox_options)
-
-    elif config['browserType'].lower() == 'edge':
+        return webdriver.Firefox(service=firefox_service, options=firefox_options)
+    elif browser_type == 'edge':
         edge_options = EdgeOptions()
-        edge_options.use_chromium = True
-        edge_options.add_experimental_option('excludeSwitches', ['enable-logging'])
-
-        # Pass the EdgeService with the path from EdgeChromiumDriverManager
         edge_service = EdgeService(EdgeChromiumDriverManager().install())
-        driver = webdriver.Edge(service=edge_service, options=edge_options)
-
+        return webdriver.Edge(service=edge_service, options=edge_options)
     else:
-        raise Exception(f"Unsupported browser: {config['browserType']}")
-
-    # Navigate to the base URL
-    driver.get(config['baseUrl'])
-    yield driver
-    driver.quit()
+        raise Exception(f"Unsupported browser: {browser_type}")

@@ -1,0 +1,14 @@
+{
+  "Mobile": {
+    "width": 360,
+    "height": 640
+  },
+  "Tablet": {
+    "width": 768,
+    "height": 1024
+  },
+  "Desktop": {
+    "width": 1366,
+    "height": 768
+  }
+}
