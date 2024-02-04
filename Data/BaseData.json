@@ -1,4 +1,4 @@
 {
-  "baseUrl": "http://172.22.1.141:8089/",
-  "browserType": "chrome"
+  "baseUrl": "http://172.22.1.141:8089/"
+
 }

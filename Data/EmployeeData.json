@@ -1,5 +1,5 @@
 {
-
+  "browserType": "chrome",
   "valid_credentials": {
     "username": "test-employee3",
     "password": "45622",

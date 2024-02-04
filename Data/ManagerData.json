@@ -1,4 +1,5 @@
 {
+  "browserType": "firefox",
   "valid_manager_credentials": {
     "username": "test-supervisor2",
     "password": "45622"

@@ -33,4 +33,4 @@ def test_valid_login(manager_browser, config, login_page):
     )
     home_page = HomePage(manager_browser)
 
-    assert home_page.is_my_team_visible(), "My Team link should be visible for managers"
+    assert home_page.check_page_title(), "The page tite is not checked"

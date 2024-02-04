@@ -1,7 +1,6 @@
 import pytest
 from src.pages.HomePage import HomePage
 from src.pages.EvaluationPage import EmployeeEvaluationPage
-import time
 from src.pages.data_generator import generate_evaluation_data
 
 
@@ -32,12 +31,10 @@ def test_submit_incomplete_evaluation(employee_browser, config, evaluation_page)
 def test_fill_evaluation_randomly(employee_browser, config, evaluation_page):
     evaluation_data = generate_evaluation_data()
     evaluation_page.click_overlay_button_if_present()
-    time.sleep(10)
+    assert evaluation_page.wait_for_criteria_table_presence(), "Criteria table is not visible."
     evaluation_page.fill_ratings_by_indices(evaluation_data['ratings'])
     evaluation_page.fill_comments_evaluation_form(
         evaluation_data['like'],
         evaluation_data['dislike'],
         evaluation_data['suggestion'])
     evaluation_page.save_evaluation()
-
-

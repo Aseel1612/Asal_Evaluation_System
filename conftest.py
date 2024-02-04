@@ -34,7 +34,6 @@ def config():
         manager_config_data = json.load(manager_config_file)
 
     combined_config_data = {
-        'browserType': base_config_data['browserType'],
         'baseUrl': base_config_data['baseUrl'],
         'employee': employee_config_data,
         'manager': manager_config_data
@@ -45,7 +44,7 @@ def config():
 
 @pytest.fixture(scope='session')
 def employee_browser(config):
-    browser = init_browser(config['browserType'])
+    browser = init_browser(config['employee']['browserType'])
     browser.get(config['baseUrl'])
     yield browser
     browser.quit()
@@ -53,7 +52,7 @@ def employee_browser(config):
 
 @pytest.fixture(scope='session')
 def manager_browser(config):
-    browser = init_browser(config['browserType'])
+    browser = init_browser(config['manager']['browserType'])
     browser.get(config['baseUrl'])
     yield browser
     browser.quit()
