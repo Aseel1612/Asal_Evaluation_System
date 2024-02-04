@@ -19,9 +19,3 @@ class HomePage(BasePage):
     def is_my_team_visible(self):
         return self.is_element_visible(self.MY_TEAM_MENU_ITEM, timeout=10)
 
-    def open_employee_evaluation(self, employee_name):
-        # Wait for the 'My Team' section to be visible
-        self.is_element_visible(self.MY_TEAM_MENU_ITEM, timeout=10)
-
-        # Build a dynamic locator for the employee's "Open" button
-        open_button_locator = (By.XPATH, f"//td[contains(., '{employee_name}')]/following-sibling::td//a[@id='open']")
