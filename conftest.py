@@ -35,6 +35,8 @@ def config():
 
     combined_config_data = {
         'baseUrl': base_config_data['baseUrl'],
+        'screenshotPath': os.path.join(os.path.dirname(__file__), base_config_data['screenshotPath']),
+        'pageSourcePath': os.path.join(os.path.dirname(__file__), base_config_data['pageSourcePath']),
         'employee': employee_config_data,
         'manager': manager_config_data
     }

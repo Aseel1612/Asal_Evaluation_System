@@ -3,7 +3,7 @@
   "valid_credentials": {
     "username": "test-employee3",
     "password": "45622",
-    "name": "test employee3"
+    "EmployeeName": "test employee3"
   },
   "invalid_credentials": {
     "username": "aaaaa",

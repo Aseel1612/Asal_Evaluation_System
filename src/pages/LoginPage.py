@@ -1,16 +1,8 @@
 from src.pages.BasePage import BasePage
-from selenium.webdriver.common.by import By
+from src.locators.Locators import Locators
 
 
-class LoginPage(BasePage):
-
-    USERNAME_FIELD = (By.NAME, "username")
-    PASSWORD_FIELD = (By.NAME, "password")
-    LOGIN_BUTTON = (By.CSS_SELECTOR, "button[type='submit']")
-    ERROR_MESSAGE = (By.XPATH, "/html/body/div/div/div/div/div")
-    ASAL_LOGO = (By.CSS_SELECTOR, "img[src*='Asal Technologies.svg']")
-    AURORA_LOGO = (By.CSS_SELECTOR, "img[src*='Aurora.svg']")
-    ORION_LOGO = (By.CSS_SELECTOR, "img[src*='Orion.svg']")
+class LoginPage(BasePage, Locators):
 
     def login(self, username, password):
         self.type(self.USERNAME_FIELD, username)

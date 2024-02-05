@@ -36,6 +36,13 @@ class BasePage:
         except TimeoutException:
             return False
 
+    def is_elements_visible(self, locator, timeout=20) -> bool:
+        try:
+            self.wait_for(locator, timeout, ec.visibility_of_all_elements_located)
+            return True
+        except TimeoutException:
+            return False
+
     def is_element_clickable(self, locator, timeout=20) -> bool:
         try:
             self.wait_for(locator, timeout, ec.element_to_be_clickable)

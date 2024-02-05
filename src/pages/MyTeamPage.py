@@ -1,13 +1,13 @@
 from selenium.webdriver.common.by import By
 from src.pages.BasePage import BasePage
+from src.locators.Locators import Locators
 
 
 def get_open_button_locator(employee_name):
     return By.XPATH, f"//td[contains(., '{employee_name}')]/ancestor::tr//a[@id='open']"
 
 
-class MyTeamPage(BasePage):
-    MY_TEAM_MENU_ITEM = (By.XPATH, "//a[@href='/Supervisor/getEmployees']")
+class MyTeamPage(BasePage, Locators):
 
     def open_employee_evaluation(self, employee_name):
         if not self.is_element_visible(self.MY_TEAM_MENU_ITEM, timeout=10):

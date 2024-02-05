@@ -1,12 +1,8 @@
 from src.pages.BasePage import BasePage
-from selenium.webdriver.common.by import By
+from src.locators.Locators import Locators
 
 
-class HomePage(BasePage):
-    TITLE_OF_PAGE = (By.XPATH, "/html/body/div[3]/div[2]/div/h2/b")
-    MY_EVALUATION_LINK = (By.CSS_SELECTOR, "a[href='/Employee/EvaluationView']")
-    MY_EVALUATION_HISTORY = (By.CSS_SELECTOR, "a[href='/Employee/EvaluationHistory']")
-    MY_TEAM_MENU_ITEM = (By.XPATH, "//a[@href='/Supervisor/getEmployees']")
+class HomePage(BasePage, Locators):
 
     def go_to_evaluation_page(self):
         self.click(self.MY_EVALUATION_LINK)

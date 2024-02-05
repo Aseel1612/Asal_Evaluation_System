@@ -1,5 +1,5 @@
 from src.pages.LoginPage import LoginPage
-
+import allure
 import pytest
 
 

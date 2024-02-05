@@ -1,29 +1,22 @@
-from selenium.common import NoAlertPresentException, NoSuchElementException
-from selenium.webdriver.common.by import By
+from selenium.common import NoAlertPresentException, NoSuchElementException, TimeoutException
 from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.support.wait import WebDriverWait
 
+from src.locators.Locators import Locators
 from .BasePage import BasePage
 
 
-class EmployeeEvaluationPage(BasePage):
-    CRITERIA_ROW_LOCATOR = (By.CSS_SELECTOR, "#assets-data-table tbody tr")
-    RATING_DIVS_LOCATOR = (By.CSS_SELECTOR, "td div.checker")
-    like_textarea_locator = (By.ID, "Likes")
-    dislike_textarea_locator = (By.ID, "Dislikes")
-    suggestion_textarea_locator = (By.ID, "Improvements")
-
-    STRENGTHS_TEXTAREA_LOCATOR = (By.ID, "Strengths")
-    IMPROVEMENTS_TEXTAREA_LOCATOR = (By.ID, "Areas_of_improvements")
-
-    SAVE_BUTTON_LOCATOR = (By.CSS_SELECTOR, "button[id='saveButton']")
-    SUBMIT_BUTTON_LOCATOR = (By.CSS_SELECTOR, "button[id='submitbtn']")
-    SCROLL_TO_TOP_BUTTON_LOCATOR = (By.CSS_SELECTOR, "div.scroll-to-top")
+class EmployeeEvaluationPage(BasePage, Locators):
 
     def is_criteria_table_displayed(self):
         return len(self.find_elements(self.CRITERIA_ROW_LOCATOR)) > 0
 
     def wait_for_criteria_table_presence(self, timeout=30):
-        return self.is_element_visible(self.CRITERIA_ROW_LOCATOR, timeout)
+        return self.is_elements_visible(self.CRITERIA_ROW_LOCATOR, timeout)
+
+    def ensure_elements_visible(self, locator, timeout=20) -> bool:
+        # Utilize the base page method to check for element visibility
+        return self.is_elements_visible(locator, timeout)
 
     def is_save_button_displayed(self):
         try:
@@ -42,9 +35,9 @@ class EmployeeEvaluationPage(BasePage):
                     rating_divs[rating_indices[index]].click()
 
     def fill_comments_evaluation_form(self, like_text, dislike_text, suggestion_text):
-        self.type(self.like_textarea_locator, like_text)
-        self.type(self.dislike_textarea_locator, dislike_text)
-        self.type(self.suggestion_textarea_locator, suggestion_text)
+        self.type(self.LIKE_TEXTAREA_LOCATOR, like_text)
+        self.type(self.DISLIKE_TEXTAREA_LOCATOR, dislike_text)
+        self.type(self.SUGGESTION_TEXTAREA_LOCATOR, suggestion_text)
 
     def fill_comments_manager_evaluation_form(self, strengths, improvements):
         self.type(self.STRENGTHS_TEXTAREA_LOCATOR, strengths)
