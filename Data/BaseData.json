@@ -1,5 +1,3 @@
 {
-  "baseUrl": "http://172.22.1.141:8089/",
-  "screenshotPath": "screen_",
-  "pageSourcePath": "pagesources"
+  "baseUrl": "http://172.22.1.141:8089/"
 }

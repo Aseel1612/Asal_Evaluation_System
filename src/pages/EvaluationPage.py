@@ -1,6 +1,5 @@
-from selenium.common import NoAlertPresentException, NoSuchElementException, TimeoutException
+from selenium.common import NoAlertPresentException, NoSuchElementException
 from selenium.webdriver.support import expected_conditions as ec
-from selenium.webdriver.support.wait import WebDriverWait
 
 from src.locators.Locators import Locators
 from .BasePage import BasePage
@@ -8,14 +7,13 @@ from .BasePage import BasePage
 
 class EmployeeEvaluationPage(BasePage, Locators):
 
-    def is_criteria_table_displayed(self):
-        return len(self.find_elements(self.CRITERIA_ROW_LOCATOR)) > 0
+    # def is_criteria_table_displayed(self):
+    #  return len(self.find_elements(self.CRITERIA_ROW_LOCATOR)) > 0
 
-    def wait_for_criteria_table_presence(self, timeout=30):
+    def wait_for_criteria_table_presence(self, timeout=40):
         return self.is_elements_visible(self.CRITERIA_ROW_LOCATOR, timeout)
 
     def ensure_elements_visible(self, locator, timeout=20) -> bool:
-        # Utilize the base page method to check for element visibility
         return self.is_elements_visible(locator, timeout)
 
     def is_save_button_displayed(self):
@@ -33,6 +31,15 @@ class EmployeeEvaluationPage(BasePage, Locators):
                 if rating_indices[index] < len(rating_divs):
                     self.wait_for(rating_divs[rating_indices[index]], condition=ec.element_to_be_clickable)
                     rating_divs[rating_indices[index]].click()
+
+    def clear_rating(self):
+        criteria_rows = self.find_elements(self.CRITERIA_ROW_LOCATOR)
+
+        for row in criteria_rows:
+            checked_checkboxes = row.find_elements(*self.CHECKED_RATING_DIVS_LOCATOR)
+
+            for checkbox in checked_checkboxes:
+                checkbox.click()
 
     def fill_comments_evaluation_form(self, like_text, dislike_text, suggestion_text):
         self.type(self.LIKE_TEXTAREA_LOCATOR, like_text)
@@ -76,3 +83,28 @@ class EmployeeEvaluationPage(BasePage, Locators):
             self.click(self.SCROLL_TO_TOP_BUTTON_LOCATOR)
         else:
             print("Overlay button not present or not visible.")
+
+    # this is for submitting without ratings
+    def get_modal_dialog_text(self):
+        self.wait_for(self.MODAL_DIALOG_BOX_LOCATOR)
+        return self.find_element(self.MODAL_DIALOG_TEXT_LOCATOR).text
+
+    def confirm_modal_dialog(self):
+        self.click(self.MODAL_CONFIRM_BUTTON_LOCATOR)
+
+    def cancel_modal_dialog(self):
+        self.click(self.MODAL_CANCEL_BUTTON_LOCATOR)
+
+    def get_employee_page_title(self):
+        try:
+            page_title_element = self.find_element(self.EMPLOYEE_PAGE_TITLE_LOCATOR)
+            return page_title_element.text.strip()
+        except NoSuchElementException:
+            return None
+
+    def get_manager_page_title(self):
+        try:
+            page_title_element = self.find_element(self.PAGE_TITLE_AFTER_OPEN_BUTTON)
+            return page_title_element.text.strip()
+        except NoSuchElementException:
+            return None

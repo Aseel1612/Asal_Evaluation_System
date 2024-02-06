@@ -18,12 +18,11 @@ def generate_evaluation_data():
 
 def generate_manager_evaluation_data():
     return {
-        'strengths': generate_random_text(50),
-        'improvements': generate_random_text(50),
+        'strengths': generate_random_text(10),
+        'improvements': generate_random_text(10),
         'ratings': generate_random_ratings(18)
     }
 
 
-def generate_random_ratings(num_criteria, num_divs=5):
-    """Generate a list of random indices for rating divs selection."""
+def generate_random_ratings(num_criteria, num_divs=6):
     return [random.randint(0, num_divs - 1) for _ in range(num_criteria)]

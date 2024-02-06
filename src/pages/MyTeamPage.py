@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
-from src.pages.BasePage import BasePage
+
 from src.locators.Locators import Locators
+from src.pages.BasePage import BasePage
 
 
 def get_open_button_locator(employee_name):

@@ -8,6 +8,9 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
+    def refresh_page(self) -> object:
+        self.driver.refresh()
+
     def wait_for(self, locator, timeout=20, condition=ec.presence_of_element_located):
         try:
             return WebDriverWait(self.driver, timeout).until(condition(locator))
@@ -56,3 +59,6 @@ class BasePage:
             return self.driver.switch_to.alert
         except TimeoutException as e:
             raise TimeoutException("Timed out waiting for the alert to be present.") from e
+
+    def get_page_title(self):
+        return self.driver.title
