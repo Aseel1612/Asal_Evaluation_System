@@ -77,6 +77,8 @@ def test_fill_evaluation_randomly(employee_browser, config, evaluation_page):
         evaluation_data['dislike'],
         evaluation_data['suggestion'])
     evaluation_page.save_evaluation()
+    evaluation_page.submit_evaluation()
+    evaluation_page.confirm_submission()
     expected_title = "Employee Evaluation"
     actual_title = evaluation_page.get_employee_page_title()
     assert actual_title == expected_title, (f"Page title is incorrect. Expected:"

@@ -32,6 +32,7 @@ class Locators:
     MODAL_CONFIRM_BUTTON_LOCATOR = (By.CSS_SELECTOR, "button[data-bb-handler='confirm']")
     MODAL_CANCEL_BUTTON_LOCATOR = (By.CSS_SELECTOR, "button[data-bb-handler='cancel']")
     EMPLOYEE_PAGE_TITLE_LOCATOR = (By.CSS_SELECTOR, "h3.page-title.rating-info")
+    CONFIRM_SUBMIT_BUTTON_LOCATOR = (By.CSS_SELECTOR, "button[data-bb-handler='confirm']")
 
     # for HomePage, MyTeamPage
     TITLE_OF_PAGE = (By.XPATH, "/html/body/div[3]/div[2]/div/h2/b")

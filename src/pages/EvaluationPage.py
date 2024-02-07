@@ -7,8 +7,8 @@ from .BasePage import BasePage
 
 class EmployeeEvaluationPage(BasePage, Locators):
 
-    # def is_criteria_table_displayed(self):
-    #  return len(self.find_elements(self.CRITERIA_ROW_LOCATOR)) > 0
+    def is_criteria_table_displayed(self):
+      return len(self.find_elements(self.CRITERIA_ROW_LOCATOR)) > 0
 
     def wait_for_criteria_table_presence(self, timeout=40):
         return self.is_elements_visible(self.CRITERIA_ROW_LOCATOR, timeout)
@@ -55,6 +55,9 @@ class EmployeeEvaluationPage(BasePage, Locators):
 
     def submit_evaluation(self):
         self.click(self.SUBMIT_BUTTON_LOCATOR)
+
+    def confirm_submission(self):
+        self.click(self.CONFIRM_SUBMIT_BUTTON_LOCATOR)
 
     def wait_for_alert(self, timeout=10):
         return self.wait_for_alert_presence(timeout)
