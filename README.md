@@ -1,4 +1,4 @@
-To run the allure
+To run the project with allure
 
 
 -- pytest --alluredir=allure_reports 
