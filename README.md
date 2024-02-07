@@ -45,7 +45,7 @@ The project have a directoray called 'allure_reports' and to run the project wit
 ```
  allure serve allure_reports
 ```
---> Then allure spins up a local web server and opens the report in your default web browser. This allows you to view the test results immediately in a nicely formatted interfacehis.
+--> Then allure spins up a local web server and opens the report in your default web browser. This allows you to view the test results immediately in a nicely formatted interfaces.
 
 ![image](https://github.com/Aseel1612/Asal_Evaluation_System/assets/52132245/42471a94-71b3-48c7-8e75-0c9f443c6ccb)
 
