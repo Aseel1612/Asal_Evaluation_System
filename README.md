@@ -34,8 +34,29 @@ I have created a directory called Data that inclludes:
        * browserType option to select the desired browser for conducting manger tests.
 
 - screen-sizes.json
-  Contains dimensions for Desktop, Mobile, and Tablet to facilitate UI/UX testing across different device sizes.
+  Contains dimensions for Desktop, Mobile, and Tablet to facilitate UI/UX testing across different device sizes (this has been implemented for the login page only and a 
+  screenshots will be svaed to 'screenshots' directory).
 
+## System directories overview
+
+- conftest.py
+ 
+  this file automates test setup by loading screen sizes, merging configuration data, and initializing browsers like Chrome, Firefox, and Edge. It simplifies browser setup 
+  and test configuration, making tests adaptable and efficient.
+- src
+ 
+  * locators: is used to store the locators for various web elements that the test scripts will interact with.
+  
+  * pages: this directory houses classes corresponding to various application pages, such as BasePage, LoginPage, EvaluationPage, and MyTeamPage. It also includes a 
+          data_generator script, which is designed to randomly generate ratings and comments for both manager and employee evaluations.
+- tests
+ 
+  * test_employee: This folder contains the test cases designed to assess the functionality of the employee evaluation system.
+  
+  * test_manager: This folder contains the test cases designed to assess the functionality of the manager evaluation system.
+
+
+  
 ## Use of allure
 The project have a directoray called 'allure_reports' and to run the project with allure you need to run these 2 cmds
 ```
@@ -53,5 +74,17 @@ The project have a directoray called 'allure_reports' and to run the project wit
 
 
 
+
+## Need to do
+  - Continue to work with the Employee/Manager history: Implement functionality to view detailed histories for both employees and managers, including past evaluations, 
+    feedback, and progression over time.
+  - Increase Test Scenarios and making more connections between the manager and employee.
+  - Add more tests to see how responsive the application is to different screen sizes, because this was achieved for the login page only.
+  - Integrate the automation framework with CI tool (Jenkins) to ensure the automated tests are run efficiently with every code commit. 
+
+
+## Notes 
+   
+  
 
   
