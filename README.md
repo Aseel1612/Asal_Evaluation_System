@@ -88,7 +88,7 @@ The project have a directoray called 'allure_reports' and to run the project wit
 
 ## Note
 
-  Due to having just one manager account and one employee account for testing, I'm restricted from submitting evaluations multiple times to extract required locators. This 
+  Due to having just one manager account and one employee account for testing, I'm restricted from submitting evaluations multiple times. This 
   constraint prevents me from reopening and resubmitting evaluations for further testing, as I need to manually examine all potential scenarios beforehand. 
    
   
