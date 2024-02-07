@@ -47,8 +47,9 @@ I have created a directory called Data that inclludes:
  
   * locators: is used to store the locators for various web elements that the test scripts will interact with.
   
-  * pages: this directory houses classes corresponding to various application pages, such as BasePage, LoginPage, EvaluationPage, and MyTeamPage. It also includes a 
-          data_generator script, which is designed to randomly generate ratings and comments for both manager and employee evaluations.
+  * pages: this directory houses classes corresponding to various application pages, such as BasePage, LoginPage, EvaluationPage, HistoryBage and MyTeamPage. It also 
+    includes a data_generator script, which is designed to randomly generate ratings and comments for both manager and employee evaluations.
+    
 - tests
  
   * test_employee: This folder contains the test cases designed to assess the functionality of the employee evaluation system.
@@ -83,7 +84,8 @@ The project have a directoray called 'allure_reports' and to run the project wit
   - Integrate the automation framework with CI tool (Jenkins) to ensure the automated tests are run efficiently with every code commit. 
 
 
-## Notes 
+## Note
+  As I have only one test account for both employee and manger side 
    
   
 
