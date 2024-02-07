@@ -1,7 +1,7 @@
 # Asal Evaluation System
 The Asal Evaluation System simplifies how employee performance reviews are conducted. Each employee has a supervisor who assesses their work. The system is designed to be clear and fair, helping employees understand how they're doing and where they can improve.
 
-## Set up and installation:
+## Set up and installation
 - Install Python and pip.
 - Download and install PyCharm from the JetBrains website and create a new project.
 - Install Dependencies
@@ -12,14 +12,14 @@ The Asal Evaluation System simplifies how employee performance reviews are condu
   * pip install allure-pytest
   ```  
 
-## System Data:
+## System Data
 I have created a directory called Data that inclludes:
 - BasaData.json --> have the baseURL
 
 - EmployeeData.json
   
        * Valid credentials, which also contain the Employee Name, to enable a manager to access and assess 
-      an employee's performance.
+      an employee's evaluation.
   
        * Invalid credentials for testing unauthorized access scenarios.
   
@@ -36,7 +36,7 @@ I have created a directory called Data that inclludes:
 - screen-sizes.json
   Contains dimensions for Desktop, Mobile, and Tablet to facilitate UI/UX testing across different device sizes.
 
-## Use of allure:
+## Use of allure
 The project have a directoray called 'allure_reports' and to run the project with allure you need to run these 2 cmds
 ```
  pytest --alluredir=allure_reports
