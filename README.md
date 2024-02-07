@@ -77,6 +77,7 @@ The project have a directoray called 'allure_reports' and to run the project wit
 
 
 ## Need to do
+
   - Continue to work with the Employee/Manager history: Implement functionality to view detailed histories for both employees and managers, including past evaluations, 
     feedback, and progression over time.
   - Increase Test Scenarios and making more connections between the manager and employee.
@@ -85,7 +86,9 @@ The project have a directoray called 'allure_reports' and to run the project wit
 
 
 ## Note
-  As I have only one test account for both employee and manger side 
+
+  Due to having just one manager account and one employee account for testing, I'm restricted from submitting evaluations multiple times to extract required locators. This 
+  constraint prevents me from reopening and resubmitting evaluations for further testing, as I need to manually examine all potential scenarios beforehand. 
    
   
 
