@@ -32,7 +32,7 @@ I have created a directory called Data that includes:
   
        * Invalid credentials for testing unauthorized access scenarios.
   
-       * browserType option to select the desired browser for conducting manger tests.
+       * browserType option to select the desired browser for conducting manager tests.
 
 - screen-sizes.json
   Contains dimensions for Desktop, Mobile, and Tablet to facilitate UI/UX testing across different device sizes (this has been implemented for the login page only and a 
