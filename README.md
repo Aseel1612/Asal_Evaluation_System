@@ -13,7 +13,7 @@ The Asal Evaluation System simplifies how employee performance reviews are condu
   ```  
 
 ## System Data
-I have created a directory called Data that inclludes:
+I have created a directory called Data that includes:
 
 - BasaData.json --> have the baseURL
 
@@ -32,7 +32,7 @@ I have created a directory called Data that inclludes:
   
        * Invalid credentials for testing unauthorized access scenarios.
   
-       * browserType option to select the desired browser for conducting manger tests.
+       * browserType option to select the desired browser for conducting manager tests.
 
 - screen-sizes.json
   Contains dimensions for Desktop, Mobile, and Tablet to facilitate UI/UX testing across different device sizes (this has been implemented for the login page only and a 
@@ -88,7 +88,7 @@ The project have a directoray called 'allure_reports' and to run the project wit
 
 ## Note
 
-  Due to having just one manager account and one employee account for testing, I'm restricted from submitting evaluations multiple times to extract required locators. This 
+  Due to having just one manager account and one employee account for testing, I'm restricted from submitting evaluations multiple times. This 
   constraint prevents me from reopening and resubmitting evaluations for further testing, as I need to manually examine all potential scenarios beforehand. 
    
   
