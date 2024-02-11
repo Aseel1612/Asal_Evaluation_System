@@ -5,10 +5,10 @@ from src.locators.Locators import Locators
 from .BasePage import BasePage
 
 
-class EmployeeEvaluationPage(BasePage, Locators):
+class EvaluationPage(BasePage, Locators):
 
     def is_criteria_table_displayed(self):
-      return len(self.find_elements(self.CRITERIA_ROW_LOCATOR)) > 0
+        return len(self.find_elements(self.CRITERIA_ROW_LOCATOR)) > 0
 
     def wait_for_criteria_table_presence(self, timeout=40):
         return self.is_elements_visible(self.CRITERIA_ROW_LOCATOR, timeout)
@@ -104,6 +104,10 @@ class EmployeeEvaluationPage(BasePage, Locators):
             return page_title_element.text.strip()
         except NoSuchElementException:
             return None
+
+    def get_evaluation_period_date(self):
+        evaluation_cycle_element = self.find_element(self.EVALUATION_CYCLE_DATE_LOCATOR)
+        return evaluation_cycle_element.text.strip() if evaluation_cycle_element else None
 
     def get_manager_page_title(self):
         try:

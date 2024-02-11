@@ -1,13 +1,13 @@
 import pytest
 
-from src.pages.EvaluationPage import EmployeeEvaluationPage
+from src.pages.EvaluationPage import EvaluationPage
 from src.pages.HomePage import HomePage
-from src.pages.data_generator import generate_evaluation_data
+from src.DataGenrator.data_generator import generate_evaluation_data
 
 
 @pytest.fixture(scope='module')
 def evaluation_page(employee_browser, config):
-    return EmployeeEvaluationPage(employee_browser)
+    return EvaluationPage(employee_browser)
 
 
 @pytest.mark.order(6)
