@@ -2,7 +2,7 @@ import pytest
 
 from src.pages.EvaluationPage import EvaluationPage
 from src.pages.HomePage import HomePage
-from src.DataGenrator.data_generator import generate_evaluation_data
+from src.utils.RandomDataGenerator import generate_evaluation_data
 
 
 @pytest.fixture(scope='module')

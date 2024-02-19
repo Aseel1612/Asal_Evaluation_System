@@ -1,32 +1,30 @@
 from datetime import datetime
-
 from selenium.common import NoSuchElementException, TimeoutException
-
-from src.locators.Locators import Locators
 from src.pages.BasePage import BasePage
 
 
-class EvaluationHistoryPage(BasePage, Locators):
+class EvaluationHistoryPage(BasePage):
+    PAGE_NAME = "HistoryPage"
 
     def get_history_page_title(self):
         try:
-            page_title_element = self.find_element(self.HISTORY_PAGE_TITLE)
+            page_title_element = self.find_element(self.PAGE_NAME, "HISTORY_PAGE_TITLE")
             return page_title_element.text.strip()
         except NoSuchElementException:
             return None
 
     def search_in_history_table(self, text):
-        search_input = self.find_element(self.SEARCH_INPUT_LOCATOR)
+        search_input = self.find_element(self.PAGE_NAME, "SEARCH_INPUT_LOCATOR")
         search_input.clear()
         search_input.send_keys(text)
 
     def get_evaluation_entries(self):
-        self.is_element_visible(self.HISTORY_TABLE_WRAPPER)
-        return self.find_elements(self.EVALUATION_ROWS)
+        self.is_element_visible(self.PAGE_NAME, "HISTORY_TABLE_WRAPPER")
+        return self.find_elements(self.PAGE_NAME, "EVALUATION_ROWS")
 
     def get_evaluation_details(self, evaluation_entry):
-        cycle = evaluation_entry.find_element(*self.EVALUATION_CYCLE_COLUMN).text
-        status = evaluation_entry.find_element(*self.EVALUATION_STATUS_COLUMN).text
+        cycle = evaluation_entry.find_element(*self.get_locator(self.PAGE_NAME, "EVALUATION_CYCLE_COLUMN")).text
+        status = evaluation_entry.find_element(*self.get_locator(self.PAGE_NAME, "EVALUATION_STATUS_COLUMN")).text
         return cycle, status
 
     def evaluations_are_chronological(self, evaluation_entries):
@@ -44,8 +42,8 @@ class EvaluationHistoryPage(BasePage, Locators):
 
             if status.lower() == 'closed':
                 try:
-                    if self.is_element_clickable(self.VIEW_BUTTON_LOCATOR):
-                        self.click(self.VIEW_BUTTON_LOCATOR)
+                    if self.is_element_clickable(self.PAGE_NAME, "VIEW_BUTTON_LOCATOR"):
+                        self.click(self.PAGE_NAME, "VIEW_BUTTON_LOCATOR")
                         return True
                 except TimeoutException:
                     print("The 'View' button for the closed evaluation entry is not clickable.")

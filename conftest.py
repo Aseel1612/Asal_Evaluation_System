@@ -1,16 +1,9 @@
 import pytest
 import json
 import os
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.firefox import GeckoDriverManager
-from webdriver_manager.microsoft import EdgeChromiumDriverManager
-from selenium.webdriver.chrome.options import Options as ChromeOptions
-from selenium.webdriver.edge.options import Options as EdgeOptions
-from selenium.webdriver.firefox.options import Options as FirefoxOptions
-from selenium.webdriver.edge.service import Service as EdgeService
-from selenium.webdriver.chrome.service import Service as ChromeService
-from selenium.webdriver.firefox.service import Service as FirefoxService
+from src.utils.DriverFactory import DriverFactory
+from src.pages.LoginPage import LoginPage
+from src.pages.EvaluationPage import EvaluationPage
 
 
 @pytest.fixture(scope='session')
@@ -42,36 +35,28 @@ def config():
     return combined_config_data
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope='function')
 def employee_browser(config):
-    browser = init_browser(config['employee']['browserType'])
+    browser = DriverFactory.get_driver(config['employee']['browserType'])
     browser.get(config['baseUrl'])
     yield browser
     browser.quit()
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope='function')
 def manager_browser(config):
-    browser = init_browser(config['manager']['browserType'])
+    browser = DriverFactory.get_driver(config['manager']['browserType'])
     browser.get(config['baseUrl'])
     yield browser
     browser.quit()
 
 
-def init_browser(browser_type):
-    browser_type = browser_type.lower()
-    if browser_type == 'chrome':
-        chrome_options = ChromeOptions()
-        chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
-        chrome_service = ChromeService(ChromeDriverManager().install())
-        return webdriver.Chrome(service=chrome_service, options=chrome_options)
-    elif browser_type == 'firefox':
-        firefox_options = FirefoxOptions()
-        firefox_service = FirefoxService(GeckoDriverManager().install())
-        return webdriver.Firefox(service=firefox_service, options=firefox_options)
-    elif browser_type == 'edge':
-        edge_options = EdgeOptions()
-        edge_service = EdgeService(EdgeChromiumDriverManager().install())
-        return webdriver.Edge(service=edge_service, options=edge_options)
-    else:
-        raise Exception(f"Unsupported browser: {browser_type}")
+@pytest.fixture(scope='function')
+def login_page(employee_browser, config):
+    employee_browser.get(config['baseUrl'])
+    return LoginPage(employee_browser)
+
+
+@pytest.fixture(scope='function')
+def evaluation_page(employee_browser, config):
+    return EvaluationPage(employee_browser)
