@@ -18,7 +18,6 @@ def test_responsive_layout(login_page, config, screen_sizes, device):
 
 def test_valid_login(login_page, config):
     assert login_page.is_at(), "The browser is not on the login page."
-
     login_page.login(
         config['employee']['valid_credentials']['username'],
         config['employee']['valid_credentials']['password']

@@ -1,6 +1,8 @@
 import pytest
 import json
 import os
+
+from src.pages.HomePage import HomePage
 from src.utils.DriverFactory import DriverFactory
 from src.pages.LoginPage import LoginPage
 from src.pages.EvaluationPage import EvaluationPage
@@ -59,4 +61,13 @@ def login_page(employee_browser, config):
 
 @pytest.fixture(scope='function')
 def evaluation_page(employee_browser, config):
-    return EvaluationPage(employee_browser)
+    # Log in
+    login_page = LoginPage(employee_browser)
+    login_page.login(config['employee']['valid_credentials']['username'],
+                     config['employee']['valid_credentials']['password'])
+    home_page = HomePage(employee_browser)
+    home_page.go_to_evaluation_page()
+    # Return an instance of EvaluationPage and ensure user is on the correct page
+    eval_page = EvaluationPage(employee_browser)
+    assert eval_page.is_at(), "The browser is not on the evaluation page."
+    return eval_page

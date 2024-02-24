@@ -24,6 +24,9 @@ class BasePage:
             raise TimeoutException(
                 f"Timed out waiting for condition on element: {element_name} on page: {page_name}") from e
 
+    def wait_for_element_to_be_clickable_by_element(self, element, timeout=20):
+        WebDriverWait(self.driver, timeout).until(ec.element_to_be_clickable(element))
+
     def find_element(self, page_name, element_name, timeout=20) -> WebElement:
         return self.wait_for(page_name, element_name, timeout, ec.presence_of_element_located)
 

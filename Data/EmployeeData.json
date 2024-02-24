@@ -1,9 +1,9 @@
 {
   "browserType": "firefox",
   "valid_credentials": {
-    "username": "test-employee3",
+    "username": "test-employee4",
     "password": "45622",
-    "EmployeeName": "test employee3"
+    "EmployeeName": "test employee4"
   },
   "invalid_credentials": {
     "username": "aaaaa",

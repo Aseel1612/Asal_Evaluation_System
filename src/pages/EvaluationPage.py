@@ -6,10 +6,14 @@ from .BasePage import BasePage
 class EvaluationPage(BasePage):
     PAGE_NAME = "EvaluationPage"
 
+    def is_at(self):
+        # to Check if the browser is currently displaying the evaluation page
+        return self.is_element_visible(self.PAGE_NAME, "EMPLOYEE_PAGE_TITLE_LOCATOR")
+
     def is_criteria_table_displayed(self):
         return len(self.find_elements(self.PAGE_NAME, "CRITERIA_ROW_LOCATOR")) > 0
 
-    def wait_for_criteria_table_presence(self, timeout=40):
+    def wait_for_criteria_table_presence(self, timeout=50):
         return self.is_elements_visible(self.PAGE_NAME, "CRITERIA_ROW_LOCATOR", timeout)
 
     def ensure_elements_visible(self, element_name, timeout=20) -> bool:
@@ -28,9 +32,9 @@ class EvaluationPage(BasePage):
             if index < len(rating_indices):
                 rating_divs = row.find_elements(*self.get_locator(self.PAGE_NAME, "RATING_DIVS_LOCATOR"))
                 if rating_indices[index] < len(rating_divs):
-                    self.wait_for(self.PAGE_NAME, rating_divs[rating_indices[index]],
-                                  condition=ec.element_to_be_clickable)
-                    rating_divs[rating_indices[index]].click()
+                    rating_div = rating_divs[rating_indices[index]]
+                    self.wait_for_element_to_be_clickable_by_element(rating_div)
+                    rating_div.click()
 
     def clear_rating(self):
         criteria_rows = self.find_elements(self.PAGE_NAME, "CRITERIA_ROW_LOCATOR")
