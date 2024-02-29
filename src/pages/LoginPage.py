@@ -1,12 +1,27 @@
 from src.pages.BasePage import BasePage
+from src.pages.HomePage import HomePage
 
 
 class LoginPage(BasePage):
     PAGE_NAME = "LoginPage"
 
-    def is_at(self):
-        # Check if the browser is currently displaying the login page
-        return self.is_element_visible(self.PAGE_NAME, "LOGIN_BUTTON")
+    def __init__(self, driver, valid_credentials, invalid_credentials):
+        super().__init__(driver)
+        self.valid_credentials = valid_credentials
+        self.invalid_credentials = invalid_credentials
+
+    def login_with_valid_credentials(self):
+        self.login(
+            self.valid_credentials['username'],
+            self.valid_credentials['password']
+        )
+        return HomePage(self.driver)
+
+    def login_with_invalid_credentials(self):
+        self.login(
+            self.invalid_credentials['username'],
+            self.invalid_credentials['password']
+        )
 
     def login(self, username, password):
         self.type(self.PAGE_NAME, "USERNAME_FIELD", username)
@@ -35,3 +50,6 @@ class LoginPage(BasePage):
 
     def is_orion_logo_displayed(self):
         return self.is_element_visible(self.PAGE_NAME, "ORION_LOGO")
+
+    def set_window_size(self, width, height):
+        self.driver.set_window_size(width, height)

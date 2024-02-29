@@ -1,36 +1,11 @@
-import pytest
-
-from src.pages.HomePage import HomePage
-from src.pages.LoginPage import LoginPage
 
 
-@pytest.fixture(scope='module')
-def login_manager_page(manager_browser, config):
-    return LoginPage(manager_browser)
+def test_manager_login_with_valid_credentials_redirects_to_home_page(manager_login_page):
+    home_page = manager_login_page.login_with_valid_credentials()
+    assert home_page.check_page_title() == "ASAL Technologies – PERFORMANCE EVALUATION", \
+        "The browser is not on the home page after login."
 
 
-@pytest.mark.order(1)
-def test_invalid_login(manager_browser, config, login_manager_page):
-    manager_browser.get(config['baseUrl'])
-
-    login_manager_page.login(
-        config['manager']['invalid_manager_credentials']['username'],
-        config['manager']['invalid_manager_credentials']['password']
-    )
-
-    error_message = login_manager_page.get_error_message()
-
-    assert error_message, "Error message should be displayed for invalid login."
-
-
-@pytest.mark.order(2)
-def test_valid_login(manager_browser, config, login_manager_page):
-    manager_browser.get(config['baseUrl'])
-
-    login_manager_page.login(
-        config['manager']['valid_manager_credentials']['username'],
-        config['manager']['valid_manager_credentials']['password']
-    )
-    home_page = HomePage(manager_browser)
-
-    assert home_page.check_page_title(), "The page tite is not checked"
+def test_manager_login_with_invalid_credentials_shows_error_message(manager_login_page):
+    manager_login_page.login_with_invalid_credentials()
+    assert manager_login_page.get_error_message(), "Error message should be displayed for invalid login."

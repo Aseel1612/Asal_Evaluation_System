@@ -26,14 +26,19 @@
         "MODAL_CONFIRM_BUTTON_LOCATOR": ["css_selector", "button[data-bb-handler='confirm']"],
         "MODAL_CANCEL_BUTTON_LOCATOR": ["css_selector", "button[data-bb-handler='cancel']"],
         "EMPLOYEE_PAGE_TITLE_LOCATOR": ["css_selector", "h3.page-title.rating-info"],
-        "CONFIRM_SUBMIT_BUTTON_LOCATOR": ["css_selector", "button[data-bb-handler='confirm']"]
+        "CONFIRM_SUBMIT_BUTTON_LOCATOR": ["css_selector", "button[data-bb-handler='confirm']"],
+        "PAGE_TITLE_AFTER_OPEN_BUTTON": ["css_selector", "h3.page-title.rating-info"]
+
     },
     "HomePage": {
-        "TITLE_OF_PAGE": ["xpath", "/html/body/div[3]/div[2]/div/h2/b"],
+        "TITLE_OF_PAGE": ["xpath", "//h2[@class='page-title rating-info rating-style']/b"],
         "MY_EVALUATION_LINK": ["css_selector", "a[href='/Employee/EvaluationView']"],
         "MY_EVALUATION_HISTORY": ["css_selector", "a[href='/Employee/EvaluationHistory']"],
-        "MY_TEAM_MENU_ITEM": ["xpath", "//a[@href='/Supervisor/getEmployees']"],
-        "PAGE_TITLE_AFTER_OPEN_BUTTON": ["css_selector", "h3.page-title.rating-info"]
+        "MY_TEAM_MENU_ITEM": ["xpath", "//a[@href='/Supervisor/getEmployees']"]
+    },
+    "MyTeamPage": {
+        "MY_TEAM_MENU_ITEM": ["xpath", "//a[@href='/Supervisor/getEmployees']"]
+
     },
     "HistoryPage": {
         "HISTORY_PAGE_TITLE": ["css_selector", "h3.page-title.rating-info"],

@@ -35,7 +35,8 @@ class BasePage:
         return self.wait_for(page_name, element_name, timeout, ec.presence_of_all_elements_located)
 
     def click(self, page_name, element_name, timeout=20):
-        element = self.wait_for(page_name, element_name, timeout, ec.element_to_be_clickable)
+        locator = self.get_locator(page_name, element_name) if page_name is not None else element_name
+        element = WebDriverWait(self.driver, timeout).until(ec.element_to_be_clickable(locator))
         element.click()
 
     def type(self, page_name, element_name, text, timeout=20):
@@ -58,8 +59,9 @@ class BasePage:
             return False
 
     def is_element_clickable(self, page_name, element_name, timeout=20) -> bool:
+        locator = self.get_locator(page_name, element_name) if page_name is not None else element_name
         try:
-            self.wait_for(page_name, element_name, timeout, ec.element_to_be_clickable)
+            WebDriverWait(self.driver, timeout).until(ec.element_to_be_clickable(locator))
             return True
         except TimeoutException:
             return False
@@ -70,6 +72,3 @@ class BasePage:
             return self.driver.switch_to.alert
         except TimeoutException as e:
             raise TimeoutException("Timed out waiting for the alert to be present.") from e
-
-    def get_page_title(self):
-        return self.driver.title

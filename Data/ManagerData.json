@@ -1,10 +1,10 @@
 {
   "browserType": "firefox",
-  "valid_manager_credentials": {
-    "username": "test-supervisor2",
+  "valid_credentials": {
+    "username": "test-supervisor3",
     "password": "45622"
   },
-  "invalid_manager_credentials": {
+  "invalid_credentials": {
     "username": "aassi",
     "password": "hgukk"
   }

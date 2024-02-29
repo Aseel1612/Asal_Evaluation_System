@@ -1,38 +1,33 @@
-import pytest
-
-from src.pages.EvaluationPage import EvaluationPage
-from src.pages.HomePage import HomePage
-from src.pages.MyTeamPage import MyTeamPage
-from src.utils.RandomDataGenerator import generate_manager_evaluation_data
-
-
-@pytest.fixture(scope='module')
-def evaluation_manager_page(manager_browser, config):
-    return EvaluationPage(manager_browser)
+def test_empty_evaluation_not_submitted(manager_evaluation_page):
+    manager_evaluation_page.submit_evaluation()
+    manager_evaluation_page.wait_for_alert()
+    manager_evaluation_page.is_alert_present()
+    alert_text = manager_evaluation_page.get_alert_text()
+    assert alert_text == "Please make sure that all highlighted fields are filled", \
+        f"Alert text was '{alert_text}' instead of expected message."
 
 
-@pytest.mark.order(3)
-def test_open_employee_evaluation_from_the_manager_side(manager_browser, config, evaluation_manager_page):
-    home_page = HomePage(manager_browser)
-    home_page.go_to_my_team()
-    my_team_page = MyTeamPage(manager_browser)
-    employee_name = config['employee']['valid_credentials']['EmployeeName']
-    my_team_page.open_employee_evaluation(employee_name)
-    evaluation_manager_page.is_criteria_table_displayed()
-    assert evaluation_manager_page.wait_for_criteria_table_presence(), "Criteria table is not visible."
+def test_fill_evaluation_with_ratings_only_not_submitted(ratings_manager_filled_evaluation_form):
+    ratings_manager_filled_evaluation_form.submit_evaluation()
+    ratings_manager_filled_evaluation_form.wait_for_alert()
+    alert_text = ratings_manager_filled_evaluation_form.get_alert_text()
+    ratings_manager_filled_evaluation_form.accept_alert()
+    assert (alert_text == "Please make sure that all highlighted fields are filled"
+            and not ratings_manager_filled_evaluation_form.is_alert_present()), \
+        f"Alert text was '{alert_text}' or alert did not close after accepting"
 
 
-@pytest.mark.order(4)
-def test_fill_evaluation_randomly(manager_browser, config, evaluation_manager_page):
-    evaluation_data = generate_manager_evaluation_data()
-    evaluation_manager_page.fill_ratings_by_indices(evaluation_data['ratings'])
-    evaluation_manager_page.fill_comments_manager_evaluation_form(
-        evaluation_data['strengths'],
-        evaluation_data['improvements'])
-    evaluation_manager_page.save_evaluation()
-    evaluation_manager_page.submit_evaluation()
-    evaluation_manager_page.confirm_submission()
+def test_fill_evaluation_with_comments_only_not_submitted(comments_filled_manager_evaluation_form):
+    comments_filled_manager_evaluation_form.save_evaluation()
     expected_title = "Supervisor Evaluation"
-    actual_title = evaluation_manager_page.get_manager_page_title()
-    assert actual_title == expected_title, (f"Page title is incorrect. Expected:"
-                                            f" '{expected_title}', Got: '{actual_title}'")
+    actual_title = comments_filled_manager_evaluation_form.get_manager_page_title()
+    assert actual_title == expected_title, \
+        f"Page title is incorrect. Expected: '{expected_title}', Got: '{actual_title}'"
+
+
+def test_submit_complete_evaluation(complete_manager_evaluation_form):
+    complete_manager_evaluation_form.submit_evaluation()
+    complete_manager_evaluation_form.confirm_submission()
+    actual_title = complete_manager_evaluation_form.get_manager_page_title()
+    assert actual_title == "Supervisor Evaluation", \
+        f"Page title is incorrect. Expected: 'Supervisor Evaluation', Got: '{actual_title}'"

@@ -6,6 +6,9 @@ from .BasePage import BasePage
 class EvaluationPage(BasePage):
     PAGE_NAME = "EvaluationPage"
 
+    def __init__(self, driver):
+        super().__init__(driver)
+
     def is_at(self):
         # to Check if the browser is currently displaying the evaluation page
         return self.is_element_visible(self.PAGE_NAME, "EMPLOYEE_PAGE_TITLE_LOCATOR")

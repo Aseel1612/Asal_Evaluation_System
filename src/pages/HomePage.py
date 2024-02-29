@@ -1,12 +1,13 @@
+from selenium.common import NoSuchElementException
+
 from src.pages.BasePage import BasePage
 
 
 class HomePage(BasePage):
     PAGE_NAME = "HomePage"
 
-    def is_at(self):
-        # Check if the browser is currently displaying the home page
-        return self.is_element_visible(self.PAGE_NAME, "TITLE_OF_PAGE")
+    def __init__(self, driver):
+        super().__init__(driver)
 
     def go_to_evaluation_page(self):
         self.click(self.PAGE_NAME, "MY_EVALUATION_LINK")
@@ -18,8 +19,11 @@ class HomePage(BasePage):
         self.click(self.PAGE_NAME, "MY_TEAM_MENU_ITEM")
 
     def check_page_title(self):
-        title_element = self.wait_for(self.PAGE_NAME, "TITLE_OF_PAGE")
-        return title_element.text if title_element else None
+        try:
+            page_title_element = self.find_element(self.PAGE_NAME, "TITLE_OF_PAGE")
+            return page_title_element.text.strip()
+        except NoSuchElementException:
+            return None
 
     def is_my_team_visible(self):
         return self.is_element_visible(self.PAGE_NAME, "MY_TEAM_MENU_ITEM", timeout=10)
