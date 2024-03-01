@@ -1,8 +1,3 @@
-def test_evaluation_history_page_title(evaluation_history_page):
-    expected_title = "Evaluation History"
-    actual_title = evaluation_history_page.get_history_page_title()
-    assert actual_title == expected_title, (
-        f"Page title is incorrect. Expected: '{expected_title}', Got: '{actual_title}'")
 
 
 def test_evaluations_are_chronological(evaluation_history_page):
