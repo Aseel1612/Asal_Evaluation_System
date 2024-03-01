@@ -1,5 +1,6 @@
 from selenium.common import NoAlertPresentException, NoSuchElementException
 from selenium.webdriver.support import expected_conditions as ec
+
 from .BasePage import BasePage
 
 
@@ -8,10 +9,6 @@ class EvaluationPage(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
-
-    def is_at(self):
-        # to Check if the browser is currently displaying the evaluation page
-        return self.is_element_visible(self.PAGE_NAME, "EMPLOYEE_PAGE_TITLE_LOCATOR")
 
     def is_criteria_table_displayed(self):
         return len(self.find_elements(self.PAGE_NAME, "CRITERIA_ROW_LOCATOR")) > 0
@@ -113,8 +110,14 @@ class EvaluationPage(BasePage):
             return None
 
     def get_evaluation_period_date(self):
-        evaluation_cycle_element = self.find_element(self.PAGE_NAME, "EVALUATION_CYCLE_DATE_LOCATOR")
-        return evaluation_cycle_element.text.strip() if evaluation_cycle_element else None
+        try:
+            evaluation_cycle_element = self.wait_for(self.PAGE_NAME, "EVALUATION_CYCLE_DATE_LOCATOR")
+            full_text = evaluation_cycle_element.text.strip()
+            date_part = full_text.split(":")[1].strip() if ':' in full_text else None
+            return date_part
+        except Exception as e:
+            print(f"Error retrieving evaluation period date. Exception: {e}")
+            return None
 
     def get_manager_page_title(self):
         try:

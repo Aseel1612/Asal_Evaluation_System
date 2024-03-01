@@ -1,5 +1,10 @@
 from datetime import datetime
 from selenium.common import NoSuchElementException, TimeoutException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ec
+
+
 from src.pages.BasePage import BasePage
 
 
@@ -33,20 +38,20 @@ class EvaluationHistoryPage(BasePage):
         sorted_dates = sorted(parsed_dates, reverse=True)
         return parsed_dates == sorted_dates
 
-    def view_closed_evaluation_entry(self):
-        self.search_in_history_table("Closed")
+    def view_evaluation_entry_by_date(self, date):
+        self.search_in_history_table(date)
         evaluation_entries = self.get_evaluation_entries()
 
         for entry in evaluation_entries:
             cycle, status = self.get_evaluation_details(entry)
-
-            if status.lower() == 'closed':
+            if status.lower() == 'closed' and cycle == date:
                 try:
-                    if self.is_element_clickable(self.PAGE_NAME, "VIEW_BUTTON_LOCATOR"):
-                        self.click(self.PAGE_NAME, "VIEW_BUTTON_LOCATOR")
+                    view_button = entry.find_element(*self.get_locator(self.PAGE_NAME, "VIEW_BUTTON_LOCATOR"))
+                    if view_button.is_displayed() and view_button.is_enabled():
+                        view_button.click()
                         return True
                 except TimeoutException:
                     print("The 'View' button for the closed evaluation entry is not clickable.")
                     return False
-        print("No closed evaluation entries found.")
+        print("No closed evaluation entries found for the specified date.")
         return False

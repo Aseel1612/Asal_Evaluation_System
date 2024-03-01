@@ -1,6 +1,8 @@
 import pytest
 import json
 import os
+
+from src.pages.EvaluationHistoryPage import EvaluationHistoryPage
 from src.pages.HomePage import HomePage
 from src.pages.MyTeamPage import MyTeamPage
 from src.utils.DriverFactory import DriverFactory
@@ -148,3 +150,23 @@ def complete_manager_evaluation_form(manager_evaluation_page, manager_evaluation
         manager_evaluation_data['strengths'],
         manager_evaluation_data['improvements'])
     return manager_evaluation_page
+
+
+# For the history Page
+@pytest.fixture(scope='function')
+def evaluation_history_page(employee_browser, employee_login_page):
+    employee_login_page.login_with_valid_credentials()
+    home_page = HomePage(employee_browser)
+    home_page.go_to_evaluation_history()
+    return EvaluationHistoryPage(employee_browser)
+
+
+@pytest.fixture
+def navigate_and_search_history(employee_evaluation_page, employee_browser):
+    cycle_date = employee_evaluation_page.get_evaluation_period_date()
+    assert cycle_date is not None, "Failed to retrieve the evaluation cycle date."
+    home_page = HomePage(employee_browser)
+    home_page.go_to_evaluation_history()
+    evaluation_history_page = EvaluationHistoryPage(employee_browser)
+    evaluation_history_page.search_in_history_table(cycle_date)
+    return evaluation_history_page, cycle_date

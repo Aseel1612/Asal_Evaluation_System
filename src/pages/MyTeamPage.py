@@ -1,6 +1,4 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as ec
-from selenium.webdriver.support.ui import WebDriverWait
 
 from src.pages.BasePage import BasePage
 
@@ -20,9 +18,3 @@ class MyTeamPage(BasePage):
     @staticmethod
     def get_open_button_locator(employee_name):
         return By.XPATH, f"//td[contains(., '{employee_name}')]/ancestor::tr//a[@id='open']"
-
-    def wait_for_element_to_be_visible(self, locator, timeout=10):
-        WebDriverWait(self.driver, timeout).until(ec.visibility_of_element_located(locator))
-
-    def wait_for_element_to_be_clickable_and_click(self, locator, timeout=10):
-        WebDriverWait(self.driver, timeout).until(ec.element_to_be_clickable(locator)).click()
