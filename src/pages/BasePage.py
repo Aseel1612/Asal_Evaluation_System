@@ -78,3 +78,4 @@ class BasePage:
 
     def wait_for_element_to_be_clickable_and_click(self, locator, timeout=10):
         WebDriverWait(self.driver, timeout).until(ec.element_to_be_clickable(locator)).click()
+
