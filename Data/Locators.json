@@ -38,6 +38,7 @@
     },
     "MyTeamPage": {
         "MY_TEAM_MENU_ITEM": ["xpath", "//a[@href='/Supervisor/getEmployees']"]
+
     },
     "HistoryPage": {
         "HISTORY_PAGE_TITLE": ["css_selector", "h3.page-title.rating-info"],
