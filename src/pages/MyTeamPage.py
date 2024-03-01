@@ -1,22 +1,28 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.support.ui import WebDriverWait
+
 from src.pages.BasePage import BasePage
-
-
-def get_open_button_locator(employee_name):
-    return By.XPATH, f"//td[contains(., '{employee_name}')]/ancestor::tr//a[@id='open']"
 
 
 class MyTeamPage(BasePage):
     PAGE_NAME = "MyTeamPage"
 
+    def __init__(self, driver):
+        super().__init__(driver)
+
     def open_employee_evaluation(self, employee_name):
-        if not self.is_element_visible(self.PAGE_NAME, "MY_TEAM_MENU_ITEM", timeout=10):
-            raise Exception("My Team menu item is not visible.")
+        my_team_menu_item_locator = ("xpath", "//a[@href='/Supervisor/getEmployees']")
+        self.wait_for_element_to_be_visible(my_team_menu_item_locator)
+        open_button_locator = self.get_open_button_locator(employee_name)
+        self.wait_for_element_to_be_clickable_and_click(open_button_locator)
 
-        open_button_locator = get_open_button_locator(employee_name)
+    @staticmethod
+    def get_open_button_locator(employee_name):
+        return By.XPATH, f"//td[contains(., '{employee_name}')]/ancestor::tr//a[@id='open']"
 
-        if self.is_element_clickable(None, open_button_locator,
-                                     timeout=10):
-            self.click(None, open_button_locator)
-        else:
-            raise Exception(f"Open button for employee '{employee_name}' is not clickable or not found.")
+    def wait_for_element_to_be_visible(self, locator, timeout=10):
+        WebDriverWait(self.driver, timeout).until(ec.visibility_of_element_located(locator))
+
+    def wait_for_element_to_be_clickable_and_click(self, locator, timeout=10):
+        WebDriverWait(self.driver, timeout).until(ec.element_to_be_clickable(locator)).click()
