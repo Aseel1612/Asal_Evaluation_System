@@ -72,3 +72,9 @@ class BasePage:
             return self.driver.switch_to.alert
         except TimeoutException as e:
             raise TimeoutException("Timed out waiting for the alert to be present.") from e
+
+    def wait_for_element_to_be_visible(self, locator, timeout=10):
+        WebDriverWait(self.driver, timeout).until(ec.visibility_of_element_located(locator))
+
+    def wait_for_element_to_be_clickable_and_click(self, locator, timeout=10):
+        WebDriverWait(self.driver, timeout).until(ec.element_to_be_clickable(locator)).click()

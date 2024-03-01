@@ -20,7 +20,7 @@
         "SAVE_BUTTON_LOCATOR": ["css_selector", "button[id='saveButton']"],
         "SUBMIT_BUTTON_LOCATOR": ["css_selector", "button[id='submitbtn']"],
         "SCROLL_TO_TOP_BUTTON_LOCATOR": ["css_selector", "div.scroll-to-top"],
-        "EVALUATION_CYCLE_DATE_LOCATOR": ["css_selector", "h3.page-title.employee-info b + *"],
+        "EVALUATION_CYCLE_DATE_LOCATOR": ["xpath", "/html/body/div[3]/div[2]/div/div[3]/div/div[1]/div[1]/div[2]/h3"],
         "MODAL_DIALOG_BOX_LOCATOR": ["css_selector", ".modal-dialog"],
         "MODAL_DIALOG_TEXT_LOCATOR": ["css_selector", ".modal-body"],
         "MODAL_CONFIRM_BUTTON_LOCATOR": ["css_selector", "button[data-bb-handler='confirm']"],
