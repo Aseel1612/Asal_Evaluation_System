@@ -4,7 +4,9 @@ The Asal Evaluation System simplifies how employee performance reviews are condu
 ## System Data
 I have created a directory called Data that includes:
 
-- BasaData.json --> have the baseURL
+- BasaData.json
+  
+       contains the baseURL
 
 - EmployeeData.json
   
