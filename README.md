@@ -93,30 +93,30 @@ The project have a directoray called 'allure_reports'
 
 ## How to run the project
 1. Clone the Repository:
-  ```
-  git clone https://github.com/Aseel1612/Asal_Evaluation_System.git
-  ```
+    ```
+    git clone https://github.com/Aseel1612/Asal_Evaluation_System.git
+    ```
 2. Navigate to the Project Directory:
-  ```
-  cd Asal_Evaluation_System
-  ```   
+    ```
+    cd Asal_Evaluation_System
+    ```   
 3. Create a Virtual Environment:
-  ```
-  python -m venv venv
-  ```
+    ```
+    python -m venv venv
+    ```
 4. Activate the Virtual Environment:
-  ```
-  .\venv\Scripts\activate
-  ```
+    ```
+    .\venv\Scripts\activate
+    ```
 5. Install Dependencies:
-  ```
-  pip install -r requirements.txt
-  ```
+    ```
+    pip install -r requirements.txt
+    ```
 6. Run Tests with Pytest:
-  ```
-  pytest --clean-alluredir --alluredir allure-results
-  allure serve allure_reports
-  ```
+    ```
+    pytest --clean-alluredir --alluredir allure-results
+    allure serve allure_reports
+    ```
   If you want to test a specific directory or file, you can specify it like pytest tests/ or pytest tests/test_EmployeeLogin.py.
 
 
