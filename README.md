@@ -1,9 +1,6 @@
 # Asal Evaluation System
 The Asal Evaluation System simplifies how employee performance reviews are conducted. Each employee has a supervisor who assesses their work. The system is designed to be clear and fair, helping employees understand how they're doing and where they can improve.
 
-## Set up
-- Install Python and pip.
-
 ## System Data
 I have created a directory called Data that includes:
 
@@ -87,6 +84,9 @@ The project have a directoray called 'allure_reports'
  Then allure spins up a local web server and opens the report in your default web browser. This allows you to view the test results immediately in a nicely formatted 
  interfaces.
 
+## Prerequisites to run the project
+- Python 3.12.2
+- pip 23.2.1 
 
 
 ## How to run the project
