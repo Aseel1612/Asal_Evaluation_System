@@ -26,9 +26,9 @@ def test_fill_evaluation_with_comments_only_not_submitted(comments_filled_employ
         f"Page title is incorrect. Expected: '{expected_title}', Got: '{actual_title}'"
 
 
-#def test_submit_complete_evaluation(complete_employee_evaluation_form):
- #   complete_employee_evaluation_form.submit_evaluation()
-  #  complete_employee_evaluation_form.confirm_submission()
-   # actual_title = complete_employee_evaluation_form.get_employee_page_title()
-    #assert actual_title == "Employee Evaluation", \
-     #   f"Page title is incorrect. Expected: 'Employee Evaluation', Got: '{actual_title}'"
+def test_submit_complete_evaluation(complete_employee_evaluation_form):
+    complete_employee_evaluation_form.submit_evaluation()
+    complete_employee_evaluation_form.confirm_submission()
+    actual_title = complete_employee_evaluation_form.get_employee_page_title()
+    assert actual_title == "Employee Evaluation", \
+        f"Page title is incorrect. Expected: 'Employee Evaluation', Got: '{actual_title}'"
