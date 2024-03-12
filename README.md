@@ -124,7 +124,8 @@ The project have a directoray called 'allure_reports' and to run the project wit
   ```
 6. Run Tests with Pytest:
   ```
-  pytest
+  pytest --clean-alluredir --alluredir allure-results
+  allure serve allure_reports
   ```
   If you want to test a specific directory or file, you can specify it like pytest tests/ or pytest tests/test_EmployeeLogin.py.
 
