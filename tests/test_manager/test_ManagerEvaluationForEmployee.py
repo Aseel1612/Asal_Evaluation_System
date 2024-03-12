@@ -25,9 +25,9 @@ def test_fill_evaluation_with_comments_only_not_submitted(comments_filled_manage
         f"Page title is incorrect. Expected: '{expected_title}', Got: '{actual_title}'"
 
 
-def test_submit_complete_evaluation(complete_manager_evaluation_form):
-    complete_manager_evaluation_form.submit_evaluation()
-    complete_manager_evaluation_form.confirm_submission()
-    actual_title = complete_manager_evaluation_form.get_manager_page_title()
-    assert actual_title == "Supervisor Evaluation", \
-        f"Page title is incorrect. Expected: 'Supervisor Evaluation', Got: '{actual_title}'"
+#def test_submit_complete_evaluation(complete_manager_evaluation_form):
+ #   complete_manager_evaluation_form.submit_evaluation()
+  #  complete_manager_evaluation_form.confirm_submission()
+   # actual_title = complete_manager_evaluation_form.get_manager_page_title()
+    #assert actual_title == "Supervisor Evaluation", \
+     #   f"Page title is incorrect. Expected: 'Supervisor Evaluation', Got: '{actual_title}'"

@@ -1,9 +1,9 @@
 {
   "browserType": "edge",
   "valid_credentials": {
-    "username": "test-employee",
+    "username": "test-employee3",
     "password": "45622",
-    "EmployeeName": "test employee"
+    "EmployeeName": "test employee3"
   },
   "invalid_credentials": {
     "username": "aaaaa",

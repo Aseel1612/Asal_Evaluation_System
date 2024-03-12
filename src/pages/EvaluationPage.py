@@ -7,9 +7,6 @@ from .BasePage import BasePage
 class EvaluationPage(BasePage):
     PAGE_NAME = "EvaluationPage"
 
-    def __init__(self, driver):
-        super().__init__(driver)
-
     def is_criteria_table_displayed(self):
         return len(self.find_elements(self.PAGE_NAME, "CRITERIA_ROW_LOCATOR")) > 0
 
