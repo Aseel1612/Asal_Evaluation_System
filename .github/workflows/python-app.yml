@@ -21,6 +21,7 @@ jobs:
     - name: Install Java
       uses: actions/setup-java@v2
       with:
+        distribution: 'adoptium' # This is the fix
         java-version: '11'
 
     - name: Install Allure
@@ -50,7 +51,5 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/master'
       with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./allure_report
-
-
-
