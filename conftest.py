@@ -39,8 +39,7 @@ def manager_config():
 
 @pytest.fixture(scope='function')
 def employee_browser(base_config, employee_config):
-    # Override the browser type from the config if BROWSER_TYPE is set
-    browser_type = os.getenv('BROWSER_TYPE') or employee_config['browserType']
+    browser_type = employee_config['browserType']
     browser = DriverFactory.get_driver(browser_type.lower(), headless=True)
     browser.get(base_config['baseUrl'])
     yield browser
@@ -49,12 +48,12 @@ def employee_browser(base_config, employee_config):
 
 @pytest.fixture(scope='function')
 def manager_browser(base_config, manager_config):
-    # Override the browser type from the config if BROWSER_TYPE is set
-    browser_type = os.getenv('BROWSER_TYPE') or manager_config['browserType']
+    browser_type = manager_config['browserType']
     browser = DriverFactory.get_driver(browser_type.lower(), headless=True)
     browser.get(base_config['baseUrl'])
     yield browser
     browser.quit()
+
 
 
 @pytest.fixture(scope='function')
