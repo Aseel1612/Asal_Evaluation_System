@@ -4,3 +4,4 @@ def test_close_evaluation(employee_evaluation_page):
     actual_title = employee_evaluation_page.get_employee_page_title()
     assert actual_title == "Employee Evaluation", \
         f"Page title is incorrect. Expected: 'Employee Evaluation', Got: '{actual_title}'"
+

@@ -11,4 +11,3 @@ test_files = [
 ]
 
 subprocess.run(["pytest", "--clean-alluredir", "--alluredir", "allure_reports"] + test_files)
-
