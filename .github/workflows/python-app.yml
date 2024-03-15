@@ -21,7 +21,7 @@ jobs:
     - name: Install Java
       uses: actions/setup-java@v2
       with:
-        java-version: '11' # Choose the version of Java required by Allure
+        java-version: '11'
 
     - name: Install Allure
       run: |
@@ -50,5 +50,5 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/master'
       with:
-        github_token: ${{ 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 }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./allure_report
