@@ -18,12 +18,11 @@ jobs:
       with:
         python-version: '3.12.2'
 
-    - name: Install Java
+    - name: Set up Java
       uses: actions/setup-java@v2
       with:
-        distribution: 'adoptium' # This is the fix
+        distribution: 'temurin'
         java-version: '11'
-
     - name: Install Allure
       run: |
         sudo apt-get update
