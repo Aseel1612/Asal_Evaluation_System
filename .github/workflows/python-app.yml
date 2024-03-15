@@ -23,10 +23,12 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '11'
-    - name: Install Allure
+
+    - name: Install Allure Commandline
       run: |
-        sudo apt-get update
-        sudo apt-get install allure -y
+        curl -o allure-commandline.tgz -Ls https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.26.0/allure-commandline-2.26.0.tgz
+        sudo tar -zxvf allure-commandline.tgz -C /opt/
+        echo "/opt/allure-commandline-2.26.0/bin" >> $GITHUB_PATH
 
     - name: Install dependencies
       run: |
