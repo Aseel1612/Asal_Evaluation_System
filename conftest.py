@@ -1,7 +1,6 @@
 import pytest
 import json
 import os
-
 from src.pages.EvaluationHistoryPage import EvaluationHistoryPage
 from src.pages.HomePage import HomePage
 from src.pages.MyTeamPage import MyTeamPage
@@ -40,7 +39,9 @@ def manager_config():
 
 @pytest.fixture(scope='function')
 def employee_browser(base_config, employee_config):
-    browser = DriverFactory.get_driver(employee_config['browserType'])
+    # Override the browser type from the config if BROWSER_TYPE is set
+    browser_type = os.getenv('BROWSER_TYPE') or employee_config['browserType']
+    browser = DriverFactory.get_driver(browser_type.lower(), headless=True)
     browser.get(base_config['baseUrl'])
     yield browser
     browser.quit()
@@ -48,7 +49,9 @@ def employee_browser(base_config, employee_config):
 
 @pytest.fixture(scope='function')
 def manager_browser(base_config, manager_config):
-    browser = DriverFactory.get_driver(manager_config['browserType'])
+    # Override the browser type from the config if BROWSER_TYPE is set
+    browser_type = os.getenv('BROWSER_TYPE') or manager_config['browserType']
+    browser = DriverFactory.get_driver(browser_type.lower(), headless=True)
     browser.get(base_config['baseUrl'])
     yield browser
     browser.quit()
@@ -158,7 +161,12 @@ def evaluation_history_page(employee_browser, employee_login_page):
     employee_login_page.login_with_valid_credentials()
     home_page = HomePage(employee_browser)
     home_page.go_to_evaluation_history()
-    return EvaluationHistoryPage(employee_browser)
+    evaluation_history_page = EvaluationHistoryPage(employee_browser)
+    expected_title = "Evaluation History"
+    actual_title = evaluation_history_page.get_history_page_title()
+    assert actual_title == expected_title, (
+        f"Page title is incorrect. Expected: '{expected_title}', Got: '{actual_title}'")
+    return evaluation_history_page
 
 
 @pytest.fixture

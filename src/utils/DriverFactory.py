@@ -12,35 +12,48 @@ from selenium.webdriver.firefox.service import Service as FirefoxService
 
 class DriverFactory:
     @staticmethod
-    def get_driver(browser_type):
+    def get_driver(browser_type, headless=True):
         browser_type = browser_type.lower()
         if browser_type == 'chrome':
-            return DriverFactory._create_chrome_driver()
+            return DriverFactory._create_chrome_driver(headless)
         elif browser_type == 'firefox':
-            return DriverFactory._create_firefox_driver()
+            return DriverFactory._create_firefox_driver(headless)
         elif browser_type == 'edge':
-            return DriverFactory._create_edge_driver()
+            return DriverFactory._create_edge_driver(headless)
         else:
             raise Exception(f"Unsupported browser: {browser_type}")
 
     @staticmethod
-    def _create_chrome_driver():
+    def _create_chrome_driver(headless):
         chrome_options = ChromeOptions()
+        if headless:
+            chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-gpu")
+        chrome_options.add_argument("--disable-dev-shm-usage")
         chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
         chrome_service = ChromeService(ChromeDriverManager().install())
         return webdriver.Chrome(service=chrome_service, options=chrome_options)
 
     @staticmethod
-    def _create_firefox_driver():
+    def _create_firefox_driver(headless):
         firefox_options = FirefoxOptions()
+        if headless:
+            firefox_options.add_argument("--headless")
+        firefox_options.add_argument("--disable-gpu")
+        firefox_options.add_argument("--no-sandbox")
         firefox_service = FirefoxService(GeckoDriverManager().install())
         return webdriver.Firefox(service=firefox_service, options=firefox_options)
 
     @staticmethod
-    def _create_edge_driver():
+    def _create_edge_driver(headless):
         edge_options = EdgeOptions()
         edge_options.use_chromium = True
-
+        if headless:
+            edge_options.add_argument("--headless")
+        edge_options.add_argument("--disable-gpu")
+        edge_options.add_argument("--no-sandbox")
+        edge_options.add_argument("--disable-dev-shm-usage")
         edge_options.add_argument("--disable-features=msEdgeEnterpriseRealtimeExtension")
         edge_options.add_argument("--disable-extensions")
         edge_options.add_argument("--start-maximized")
