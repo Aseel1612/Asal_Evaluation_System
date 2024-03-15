@@ -31,3 +31,4 @@ def test_submit_complete_evaluation(complete_employee_evaluation_form):
     actual_title = complete_employee_evaluation_form.get_employee_page_title()
     assert actual_title == "Employee Evaluation", \
         f"Page title is incorrect. Expected: 'Employee Evaluation', Got: '{actual_title}'"
+

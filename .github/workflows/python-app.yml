@@ -51,3 +51,5 @@ jobs:
       if: github.ref == 'refs/heads/master'
       with:
         publish_dir: ./allure_report
+
+
