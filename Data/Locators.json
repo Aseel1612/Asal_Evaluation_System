@@ -27,8 +27,9 @@
         "MODAL_CANCEL_BUTTON_LOCATOR": ["css_selector", "button[data-bb-handler='cancel']"],
         "EMPLOYEE_PAGE_TITLE_LOCATOR": ["css_selector", "h3.page-title.rating-info"],
         "CONFIRM_SUBMIT_BUTTON_LOCATOR": ["css_selector", "button[data-bb-handler='confirm']"],
-        "PAGE_TITLE_AFTER_OPEN_BUTTON": ["css_selector", "h3.page-title.rating-info"]
-
+        "PAGE_TITLE_AFTER_OPEN_BUTTON": ["css_selector", "h3.page-title.rating-info"],
+        "CLOSE_BUTTON_LOCATOR": ["css_selector", "button[id='CLOSEbtn']"],
+        "SUBMIT_BUTTON_AFTER_CLOSE_LOCATOR": ["css_selector", "button[id='save']"]
     },
     "HomePage": {
         "TITLE_OF_PAGE": ["xpath", "//h2[@class='page-title rating-info rating-style']/b"],

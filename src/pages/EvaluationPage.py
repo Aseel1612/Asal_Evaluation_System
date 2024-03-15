@@ -122,3 +122,9 @@ class EvaluationPage(BasePage):
             return page_title_element.text.strip()
         except NoSuchElementException:
             return None
+
+    def close_evaluation(self):
+        self.click(self.PAGE_NAME, "CLOSE_BUTTON_LOCATOR")
+
+    def confirm_close(self):
+        self.click(self.PAGE_NAME, "SUBMIT_BUTTON_AFTER_CLOSE_LOCATOR")

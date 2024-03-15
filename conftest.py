@@ -55,7 +55,6 @@ def manager_browser(base_config, manager_config):
     browser.quit()
 
 
-
 @pytest.fixture(scope='function')
 def employee_login_page(employee_browser, employee_config):
     return LoginPage(employee_browser, employee_config['valid_credentials'], employee_config['invalid_credentials'])

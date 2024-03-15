@@ -9,22 +9,46 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v2
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: '3.12.2'
+
+    - name: Install Java
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11' # Choose the version of Java required by Allure
+
+    - name: Install Allure
+      run: |
+        sudo apt-get update
+        sudo apt-get install allure -y
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install allure-pytest
+
     - name: Run tests with pytest and generate Allure results
-      run: |
-        pytest --clean-alluredir --alluredir allure_reports
+      run: python3 run_tests.py
+
     - name: Archive Allure results
       uses: actions/upload-artifact@v2
       with:
         name: allure-reports
         path: allure_reports
+
+    - name: Generate Allure report
+      run: allure generate allure_reports -o allure_report --clean
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/master'
+      with:
+        github_token: ${{ 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 }}
+        publish_dir: ./allure_report

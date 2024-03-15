@@ -1,4 +1,3 @@
-
 def test_empty_evaluation_not_submitted(employee_evaluation_page):
     employee_evaluation_page.submit_evaluation()
     employee_evaluation_page.wait_for_alert()
@@ -18,7 +17,7 @@ def test_fill_evaluation_with_ratings_only_not_submitted(ratings_filled_evaluati
         f"Alert text was '{alert_text}' or alert did not close after accepting"
 
 
-def test_fill_evaluation_with_comments_only_not_submitted(comments_filled_employee_evaluation_form,):
+def test_fill_evaluation_with_comments_only_not_submitted(comments_filled_employee_evaluation_form, ):
     comments_filled_employee_evaluation_form.save_evaluation()
     expected_title = "Employee Evaluation"
     actual_title = comments_filled_employee_evaluation_form.get_employee_page_title()
