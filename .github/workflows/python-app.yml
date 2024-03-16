@@ -27,11 +27,10 @@ jobs:
     - name: Install Allure Commandline
       run: |
         curl -o allure-commandline.tgz -Ls https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.26.0/allure-commandline-2.26.0.tgz
-        tar -tzf allure-commandline.tgz
         sudo tar -zxvf allure-commandline.tgz -C /opt/
-        ls -la /opt/allure-commandline-2.26.0/bin
-        echo "/opt/allure-commandline-2.26.0/bin" >> $GITHUB_PATH
-        /opt/allure-commandline-2.26.0/bin/allure --version
+        ls -la /opt/allure-2.26.0/bin
+        echo "/opt/allure-2.26.0/bin" >> $GITHUB_PATH
+        /opt/allure-2.26.0/bin/allure --version
 
     - name: Print PATH
       run: echo $PATH
@@ -52,7 +51,7 @@ jobs:
         path: allure_reports
 
     - name: Generate Allure report
-      run: /opt/allure-commandline-2.26.0/bin/allure generate allure_reports -o allure_report --clean
+      run: /opt/allure-2.26.0/bin/allure generate allure_reports -o allure_report --clean
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
